@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
 require './lib/deck'
+require './lib/round'
 require 'pry'
 
 class TurnTest < Minitest::Test
@@ -13,30 +14,28 @@ class TurnTest < Minitest::Test
     @card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     @cards = [@card_1, @card_2, @card_3]
     @deck = Deck.new(@cards)
+    @round = Round.new(@deck)
   end
 
-  def test_does_deck_exist
-
-    assert_instance_of Deck, @deck
+  def test_does_round_exist
+    assert_instance_of Round, @round
   end
 
-  def test_it_has_cards_method
-
-    assert_equal @cards, @deck.cards
+  def test_round_has_deck_method
+    assert_equal @deck, @round.deck
   end
 
-  def test_it_has_count_method
-
-    assert_equal 3, @deck.count
+  def test_round_has_turns_method
+    assert_equal [], @round.turns
   end
 
   def test_it_has_cards_in_category_method_and_returns_correct_array
-
+    skip
     assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
   end
 
   def test_returns_correct_cards_if_geography_category_selected
-
+    skip
     assert_equal [@card_1], @deck.cards_in_category(:Geography)
   end
 end
