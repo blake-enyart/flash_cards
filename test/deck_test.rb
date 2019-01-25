@@ -24,4 +24,9 @@ class TurnTest < Minitest::Test
 
     assert_equal @cards, @deck.cards
   end
+
+  def test_it_has_count_method
+
+    assert_equal 3, @deck.count
+  end
 end
