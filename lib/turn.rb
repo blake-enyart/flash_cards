@@ -1,3 +1,5 @@
+
+
 class Turn
   attr_reader :card,
               :guess
@@ -7,15 +9,7 @@ class Turn
     @card = card
   end
 
-  # def card
-  #   return card
-  # end
-  #
-  # def correct?
-  #   # if string == card
-  #   #   return true
-  #   # else
-  #   #   return false
-  #   #
-  # end
+  def correct?
+    @guess == card.answer
+  end
 end
