@@ -25,17 +25,22 @@ class TurnTest < Minitest::Test
     assert_equal @deck, @round.deck
   end
 
-  def test_round_has_turns_method
+  def test_round_has_turns_method_with_empty_array
     assert_equal [], @round.turns
   end
 
-  def test_it_has_cards_in_category_method_and_returns_correct_array
-    skip
-    assert_equal [@card_2, @card_3], @deck.cards_in_category(:STEM)
+  def test_take_turn_method_turns_array_not_empty
+    @round.take_turn("Juneau")
+
+    assert_equal 1, @round.turns.length
   end
 
-  def test_returns_correct_cards_if_geography_category_selected
-    skip
-    assert_equal [@card_1], @deck.cards_in_category(:Geography)
+  def test_take_turn_method_correct_object
+    turn = @round.take_turn("Juneau")
+
+    assert_equal turn, @round.turns[0]
+    assert_instance_of Turn, @round.turns[0]
+    assert_instance_of Turn, @round.take_turn("Juneau")
   end
+
 end
