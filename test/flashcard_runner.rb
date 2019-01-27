@@ -2,17 +2,18 @@ require './lib/turn'
 require './lib/card'
 require './lib/deck'
 require './lib/round'
+require './lib/card_generator'
 require 'pry'
 
 # Create some Cards
 
 #Need to modify this to take in card generator functionality
-card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-
+# card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+# card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+# card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+filename = './lib/cards.txt'
 # Put those card into a Deck
-cards = [card_1, card_2, card_3]
+cards = CardGenerator.new(filename).cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 # Create a new Round using the Deck you created
