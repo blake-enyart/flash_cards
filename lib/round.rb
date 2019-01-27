@@ -1,6 +1,3 @@
-require 'pry'
-require './lib/turn'
-
 class Round
   attr_reader :deck,
               :number_correct,
@@ -26,7 +23,6 @@ class Round
       @number_correct += 1
       @correct_turns << a_turn
     end
-    a_turn.feedback
     #increment current card
     @current_card = @deck.cards[@turns.length]
     return a_turn

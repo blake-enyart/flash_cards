@@ -76,7 +76,7 @@ class RoundTest < Minitest::Test
 
   def test_feedback_output_is_correct
     turn = @round.take_turn("Fargo")
-
+    
     assert_equal "Incorrect.", @round.turns.last.feedback
   end
 
