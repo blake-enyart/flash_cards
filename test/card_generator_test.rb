@@ -19,4 +19,11 @@ class CardGeneratorTest < Minitest::Test
     assert_instance_of CardGenerator, @card_generator
   end
 
+  def test_io_read_correctly_loads_in_txt_file
+    filename = './lib/test.txt'
+    @card_generator = CardGenerator.new(filename)
+
+    assert_equal "test", @card_generator.lines[0].chomp
+  end
+
 end
