@@ -1,9 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/turn'
 require './lib/card'
-require './lib/deck'
-require './lib/round'
 require './lib/card_generator'
 require 'pry'
 
@@ -23,21 +20,22 @@ class CardGeneratorTest < Minitest::Test
     filename = './lib/test.txt'
     @card_generator = CardGenerator.new(filename)
 
-    assert_equal "test", @card_generator.lines[0][0].chomp
+    assert_equal "test", @card_generator.cards[0].question
   end
 
   def test_io_readlines_correctly_loads_in_array_of_lines
     filename = './lib/test_mult.txt'
     @card_generator = CardGenerator.new(filename)
 
-    assert_equal "test2", @card_generator.lines[1][0].chomp
+    assert_equal "test2", @card_generator.cards[1].question
   end
 
   def test_io_instantiated_object_splits_line_on_comma
     filename = './lib/test_mult.txt'
     @card_generator = CardGenerator.new(filename)
-    line = ["test3","test3","test3"]
-    assert_equal line , @card_generator.lines[2]
+    line = "answer"
+
+    assert_equal line , @card_generator.cards[2].answer
   end
 
   def test_card_generator_instantiated_object_creates_array_card_objects
@@ -50,7 +48,7 @@ class CardGeneratorTest < Minitest::Test
   def test_card_object_in_cards_has_appropriate_answer
     filename = './lib/test_mult.txt'
     @card_generator = CardGenerator.new(filename)
-    
+
     assert_equal "Juneau" , @card_generator.cards[3].answer
   end
 
