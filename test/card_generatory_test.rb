@@ -6,7 +6,7 @@ require './lib/deck'
 require './lib/round'
 require 'pry'
 
-class TurnTest < Minitest::Test
+class CardGeneratorTest < Minitest::Test
 
   def setup
   end

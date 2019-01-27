@@ -6,7 +6,7 @@ require './lib/deck'
 require './lib/round'
 require 'pry'
 
-class TurnTest < Minitest::Test
+class RoundTest < Minitest::Test
 
   def setup
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
