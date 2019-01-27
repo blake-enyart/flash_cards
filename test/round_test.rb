@@ -18,14 +18,17 @@ class TurnTest < Minitest::Test
   end
 
   def test_does_round_exist
+
     assert_instance_of Round, @round
   end
 
   def test_round_has_deck_method
+
     assert_equal @deck, @round.deck
   end
 
   def test_round_has_turns_method_with_empty_array
+
     assert_equal [], @round.turns
   end
 
