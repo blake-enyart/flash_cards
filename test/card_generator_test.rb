@@ -23,23 +23,36 @@ class CardGeneratorTest < Minitest::Test
     filename = './lib/test.txt'
     @card_generator = CardGenerator.new(filename)
 
-    assert_equal "test", @card_generator.lines[0].chomp
+    assert_equal "test", @card_generator.lines[0][0].chomp
   end
 
   def test_io_readlines_correctly_loads_in_array_of_lines
     filename = './lib/test_mult.txt'
     @card_generator = CardGenerator.new(filename)
 
-    assert_equal "test2", @card_generator.lines[1].chomp
+    assert_equal "test2", @card_generator.lines[1][0].chomp
   end
 
-    def test_io_instantiated_object_splits_line_on_comma
-      filename = './lib/test_mult.txt'
-      @card_generator = CardGenerator.new(filename)
-      binding.pry
+  def test_io_instantiated_object_splits_line_on_comma
+    filename = './lib/test_mult.txt'
+    @card_generator = CardGenerator.new(filename)
+    line = ["test3","test3","test3"]
+    assert_equal line , @card_generator.lines[2]
+  end
 
-      assert_equal ["test3","test3","test3"], @card_generator.lines[2]
+  def test_card_generator_instantiated_object_creates_array_card_objects
+    filename = './lib/test_mult.txt'
+    @card_generator = CardGenerator.new(filename)
 
-    end
+    assert_instance_of Card , @card_generator.cards[0]
+  end
+
+  def test_card_object_in_cards_has_appropriate_answer
+    filename = './lib/test_mult.txt'
+    @card_generator = CardGenerator.new(filename)
+
+    assert_equal "Juneau" , @card_generator.cards[3].answer
+
+  end
 
 end
