@@ -1,13 +1,15 @@
-# require 'pry'
+require 'pry'
 
 class CardGenerator
 
-  attr_reader
+  attr_reader :lines
 
   def initialize(filename)
-    file = File.new(filename)
-    @lines = file.readlines
-    @lines[0]
+    # file = File.new(filename)
+    @lines = File.readlines(filename)
+    @lines = @lines.map{|line| line.chomp.split(',')}
+
+    binding.pry
     #separate on commas into array
     #turn that into card objects
     #shovel card objects into array
