@@ -1,4 +1,4 @@
 test
 test2
 test3,test3,test3
-"What is the capital of Alaska?", "Juneau", :Geography
+What is the capital of Alaska?,Juneau,:Geography

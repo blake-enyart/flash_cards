@@ -50,9 +50,13 @@ class CardGeneratorTest < Minitest::Test
   def test_card_object_in_cards_has_appropriate_answer
     filename = './lib/test_mult.txt'
     @card_generator = CardGenerator.new(filename)
-
+    
     assert_equal "Juneau" , @card_generator.cards[3].answer
+  end
 
+  def test_cards_txt_file_reads_in_correctly_and_first_question_answer_correct
+
+    assert_equal "10", @card_generator.cards[0].answer
   end
 
 end
