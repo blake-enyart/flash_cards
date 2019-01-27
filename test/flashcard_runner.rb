@@ -5,19 +5,13 @@ require './lib/round'
 require './lib/card_generator'
 require 'pry'
 
-# Create some Cards
+# Create some Cards and put into deck
+filename = './lib/cards.txt'
 
-#Need to modify this to take in card generator functionality
-# card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
-# card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
-# card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
-filename = './lib/test_mult.txt'
-# Put those card into a Deck
 cards = CardGenerator.new(filename).cards
 deck = Deck.new(cards)
 round = Round.new(deck)
-# Create a new Round using the Deck you created
-# Start the round using a new method called start (round.start)
+
 while round.deck.cards.index(round.current_card) != nil
   round.start()
 
@@ -26,6 +20,8 @@ while round.deck.cards.index(round.current_card) != nil
 
   guess = gets.chomp()
   round.take_turn(guess)
+  round.turns.last.feedback
+  puts
 end
 
 puts "*"*10 + " Game over! " + "*"*10
